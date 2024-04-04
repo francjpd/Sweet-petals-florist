@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const BASE_URL = import.meta.env.VITE_PRODUCT_API_URL
 
-type Product = {
+export type Product = {
     id: string,
     name: string,
     binomialName: string,
