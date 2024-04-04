@@ -5,14 +5,14 @@ const Breadcrumb = () => {
     const location = useLocation();
     const pathnames: { name?: string, to: string }[] = [{ name: 'home', to: '' }, ...location.pathname.split('/').filter(x => x).map(path => ({ to: path }))];
     return (
-        <Breadcrumbs aria-label="breadcrumb">
+        <Breadcrumbs aria-label="breadcrumb" className='dark:text-white'>
             {pathnames.map((value, index) => {
                 const last = index === pathnames.length - 1;
 
                 return last ? (
-                    <Typography color="text.primary">{value.name || value.to}</Typography>
+                    <Typography key={value.to} className='dark:text-white'>{value.name || value.to}</Typography>
                 ) : (
-                    <MuiLink underline="hover" color="inherit" component={Link} to={value.to}>{value.name || value.to}</MuiLink>
+                    <MuiLink key={value.to} underline="hover" className='dark:text-white' component={Link} to={value.to}>{value.name || value.to}</MuiLink>
                 );
             })}
         </Breadcrumbs>

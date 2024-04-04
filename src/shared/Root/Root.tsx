@@ -4,9 +4,13 @@ import Breadcrumb from "../Header/Breadcrumbs";
 
 export default function Root() {
     return (
-        <>
-            <Header><Breadcrumb/></Header>
+        <div className="container w-full mx-auto flex flex-col">
+            <section className="mb-8">
+                <Header>
+                    <Breadcrumb />
+                </Header>
+            </section>
             <Outlet></Outlet >
-        </>
+        </div>
     )
 }
