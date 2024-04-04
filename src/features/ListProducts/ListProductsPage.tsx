@@ -18,7 +18,10 @@ export function ListProductsPage() {
             return
         }
         if (data) {
-            setFilteredProducts(data.filter(product => product.name.toLowerCase().includes(value.toLowerCase())))
+            setFilteredProducts(data.filter(product => {
+                const productName = product.name.toLowerCase()
+                return productName.includes(value.toLowerCase()) || product.binomialName.includes(value.toLowerCase())
+            }))
         }
 
     }
@@ -26,7 +29,7 @@ export function ListProductsPage() {
 
     return (<>
 
-        <div className="w-12/12 my-8 sticky top-4 z-30  p-3 rounded-sm  flex flex-col  items:center md:items-end">
+        <div className="w-12/12 my-8 sticky top-4 z-30  rounded-sm  flex flex-col  items:center md:items-end">
             <div className="bg-gray-200 dark:bg-gray-900 p-2 w-12/12 lg:w-4/12 ">
                 <Search placeholder="Search" handleSearch={handleSearch}></Search>
             </div>
