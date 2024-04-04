@@ -12,8 +12,9 @@ export function ListProductsPage() {
         navigate(`/${id}`)
     }
 
+    // I would normally use a  debounce function to handle real time filtering.
     const handleSearch = (value: string) => {
-        if (value.length === 0) {
+        if (value.length <= 1) {
             setFilteredProducts([])
             return
         }
@@ -23,9 +24,7 @@ export function ListProductsPage() {
                 return productName.includes(value.toLowerCase()) || product.binomialName.includes(value.toLowerCase())
             }))
         }
-
     }
-
 
     return (<>
 
