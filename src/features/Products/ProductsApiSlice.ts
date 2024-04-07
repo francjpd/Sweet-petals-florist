@@ -6,7 +6,7 @@ export type Product = {
     id: string,
     name: string,
     binomialName: string,
-    price: string,
+    price: number,
     imgUrl: string,
     wateringsPerWeek: number,
     fertilizerType: 'nitrogen' | 'phosphorus',
