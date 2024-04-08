@@ -26,14 +26,12 @@ export default function Breadcrumb() {
           </p>
         ) : (
           <>
-            <Link
-              to={value.to}
-              key={value.to}
-              className="dark:text-white text-floralWhite-600"
-            >
+            <Link to={value.to} key={value.to} className="text-floralWhite-600">
               {value.name || value.to}
             </Link>
-            <span className="mx-2">/</span>
+            <span className="mx-2 dark:text-floralWhite-200 text-casper-800">
+              /
+            </span>
           </>
         );
       })}

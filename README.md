@@ -4,7 +4,7 @@
   - Vite + Typescript + react
   - Redux Toolkit
   - Tailwind
-  - MUI for the Breadcrumb component and SVGs
+  - MUI only for the SVGs
   - React router dom
   - Vitest
   - Framer motion for transitions between pages
