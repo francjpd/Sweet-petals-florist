@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react";
 
-type ButtonInput = {
+type ButtonProps = {
   children?: React.ReactNode;
   onClick: MouseEventHandler<HTMLButtonElement>;
   prependIcon?: React.ReactNode;
@@ -13,7 +13,7 @@ export default function Button({
   onClick,
   prependIcon,
   variant = "primary",
-}: ButtonInput) {
+}: ButtonProps) {
   return (
     <button
       type="button"

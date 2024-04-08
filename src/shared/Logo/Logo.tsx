@@ -1,10 +1,10 @@
 import flower from "../../assets/flower.svg";
 
-type LogoInput = {
+type LogoProps = {
   className?: string;
 };
 
-export default function Logo({ className }: LogoInput) {
+export default function Logo({ className }: LogoProps) {
   return (
     <div
       className={`flex flex-col justify-center w-28 ${className && className}`}

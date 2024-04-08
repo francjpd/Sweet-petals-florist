@@ -1,6 +1,6 @@
 import { useOutlet } from "react-router-dom";
 import Header from "../Header/Header";
-import Breadcrumb from "../Header/Breadcrumbs";
+import Breadcrumb from "../Header/Breadcrumbs/Breadcrumbs";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Root() {
