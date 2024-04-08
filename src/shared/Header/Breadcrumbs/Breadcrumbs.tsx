@@ -1,4 +1,3 @@
-import { Breadcrumbs, Link as MuiLink, Typography } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { useCurrentPath } from "./useCurrentPath";
 import { useEffect } from "react";
@@ -18,25 +17,26 @@ export default function Breadcrumb() {
   useEffect(() => context.setPath(""), [location]);
 
   return (
-    <Breadcrumbs aria-label="breadcrumb" className="dark:text-white">
+    <div aria-label="breadcrumb" className="dark:text-white inline-flex">
       {pathnames.map((value, index) => {
         const last = index === pathnames.length - 1;
         return last ? (
-          <Typography key={value.to} className="dark:text-white">
-            {context.path || value.name || value.to}
-          </Typography>
+          <p key={value.to} className="dark:text-white text-casper-800">
+            {value.name || context.path || value.to}
+          </p>
         ) : (
-          <MuiLink
-            key={value.to}
-            underline="hover"
-            className="dark:text-white"
-            component={Link}
-            to={value.to}
-          >
-            {value.name || value.to}
-          </MuiLink>
+          <>
+            <Link
+              to={value.to}
+              key={value.to}
+              className="dark:text-white text-floralWhite-600"
+            >
+              {value.name || value.to}
+            </Link>
+            <span className="mx-2">/</span>
+          </>
         );
       })}
-    </Breadcrumbs>
+    </div>
   );
 }
