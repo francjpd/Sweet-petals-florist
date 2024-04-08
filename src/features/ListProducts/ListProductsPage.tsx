@@ -5,9 +5,10 @@ import { useState } from "react";
 import ProductList from "./ProductList";
 import debounce from "debounce";
 import { createPortal } from "react-dom";
+import Loading from "../../shared/Loader/Loader";
 
 export function ListProductsPage() {
-  const { data } = useFetchProductsQuery();
+  const { data, isLoading } = useFetchProductsQuery();
   const navigate = useNavigate();
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const onProductSelect = async ({ id }: Product) => {
@@ -46,12 +47,16 @@ export function ListProductsPage() {
             element
           )}
       </>
-      <div>
-        {data && (
-          <ProductList
-            elements={filteredProducts.length ? filteredProducts : data}
-            onProductSelect={onProductSelect}
-          ></ProductList>
+      <div className="flex flex-col">
+        {isLoading ? (
+          <Loading />
+        ) : (
+          data && (
+            <ProductList
+              elements={filteredProducts.length ? filteredProducts : data}
+              onProductSelect={onProductSelect}
+            ></ProductList>
+          )
         )}
       </div>
     </>
