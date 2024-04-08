@@ -5,11 +5,15 @@ import { MouseEvent } from "react";
 import { ProductDescriptionSkeleton, ProductImageSkeleton } from "./Skeleton";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { createPortal } from "react-dom";
+import { useCurrentPath } from "../../shared/Header/Breadcrumbs/useCurrentPath";
 
 export function ProductDetailsPage() {
   const { id } = useParams();
+  const context = useCurrentPath();
   const { data, isLoading } = useFetchProductByIdQuery(id as string);
   const navigate = useNavigate();
+
+  if (data) context.setPath(data.name);
 
   const handleBack = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
