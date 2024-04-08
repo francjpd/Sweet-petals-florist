@@ -4,6 +4,7 @@ import { Product, useFetchProductsQuery } from "../Products/ProductsApiSlice";
 import { ListProductsPage } from "./ListProductsPage";
 import Header from "../../shared/Header/Header";
 import { Mock } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 
 vi.mock("../Products/ProductsApiSlice", () => ({
   useFetchProductsQuery: vi.fn(),
@@ -56,7 +57,9 @@ describe("ListProductsPage", () => {
   it("filters products based on search input", async () => {
     render(
       <>
-        <Header></Header>
+        <MemoryRouter>
+          <Header></Header>
+        </MemoryRouter>
       </>
     );
     render(<ListProductsPage />);
