@@ -1,70 +1,72 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { Product, useFetchProductsQuery } from "../Products/ProductsApiSlice";
-import { ListProductsPage } from "./ListProductsPage";
-import Header from "../../shared/Header/Header";
-import { Mock } from "vitest";
-import { MemoryRouter } from "react-router-dom";
+/* eslint no-undef: */
 
-vi.mock("../Products/ProductsApiSlice", () => ({
-  useFetchProductsQuery: vi.fn(),
-}));
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { Product, useFetchProductsQuery } from '../Products/ProductsApiSlice'
+import { ListProductsPage } from './ListProductsPage'
+import Header from '../../shared/Header/Header'
+import { Mock } from 'vitest'
+import { MemoryRouter } from 'react-router-dom'
 
-vi.mock("react-router-dom", async () => {
-  const mod = await vi.importActual<typeof import("react-router-dom")>(
-    "react-router-dom"
-  );
+vi.mock('../Products/ProductsApiSlice', () => ({
+  useFetchProductsQuery: vi.fn()
+}))
+
+vi.mock('react-router-dom', async () => {
+  const mod = await vi.importActual<typeof import('react-router-dom')>(
+    'react-router-dom'
+  )
   return {
     ...mod,
-    useNavigate: () => vi.fn(),
-  };
-});
+    useNavigate: () => vi.fn()
+  }
+})
 
 const mockProducts: Product[] = [
   {
-    id: "ND1elEt4nqZrCeFflDUZ2",
-    name: "Rosa de damasco",
-    binomialName: "Rosa damascena",
+    id: 'ND1elEt4nqZrCeFflDUZ2',
+    name: 'Rosa de damasco',
+    binomialName: 'Rosa damascena',
     price: 10.5,
-    imgUrl: "http://localhost:3000/images/rosaDamascena.jpeg",
+    imgUrl: 'http://localhost:3000/images/rosaDamascena.jpeg',
     wateringsPerWeek: 3,
-    fertilizerType: "nitrogen",
-    heightInCm: 180,
+    fertilizerType: 'nitrogen',
+    heightInCm: 180
   },
   {
-    id: "pMZMhe_ZaAPZoaCCtlDrg",
-    name: "Rosa china",
-    binomialName: "Rosa chinensis",
+    id: 'pMZMhe_ZaAPZoaCCtlDrg',
+    name: 'Rosa china',
+    binomialName: 'Rosa chinensis',
     price: 11.45,
-    imgUrl: "http://localhost:3000/images/rosaChinensis.jpeg",
+    imgUrl: 'http://localhost:3000/images/rosaChinensis.jpeg',
     wateringsPerWeek: 3,
-    fertilizerType: "nitrogen",
-    heightInCm: 195,
-  },
-];
+    fertilizerType: 'nitrogen',
+    heightInCm: 195
+  }
+]
 
-describe("ListProductsPage", () => {
+describe('ListProductsPage', () => {
   beforeEach(() => {
-    (useFetchProductsQuery as Mock).mockReturnValue({ data: mockProducts });
-  });
+    (useFetchProductsQuery as Mock).mockReturnValue({ data: mockProducts })
+  })
 
-  it("renders the product list", () => {
-    render(<ListProductsPage />);
-    expect(screen.getByText("Rosa de damasco")).toBeInTheDocument();
-    expect(screen.getByText("Rosa china")).toBeInTheDocument();
-  });
+  it('renders the product list', () => {
+    render(<ListProductsPage />)
+    expect(screen.getByText('Rosa de damasco')).toBeInTheDocument()
+    expect(screen.getByText('Rosa china')).toBeInTheDocument()
+  })
 
-  it("filters products based on search input", async () => {
+  it('filters products based on search input', async () => {
     render(
       <>
         <MemoryRouter>
           <Header></Header>
         </MemoryRouter>
       </>
-    );
-    render(<ListProductsPage />);
-    const searchInput = screen.getByPlaceholderText("Search");
-    await userEvent.type(searchInput, "chinensis");
-    expect(screen.getByText("Rosa china")).toBeInTheDocument();
-  });
-});
+    )
+    render(<ListProductsPage />)
+    const searchInput = screen.getByPlaceholderText('Search')
+    await userEvent.type(searchInput, 'chinensis')
+    expect(screen.getByText('Rosa china')).toBeInTheDocument()
+  })
+})

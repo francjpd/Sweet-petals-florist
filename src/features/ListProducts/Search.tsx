@@ -1,12 +1,12 @@
-import Textfield from "../../shared/Textfield/Textfield";
-import SearchIcon from "@mui/icons-material/Search";
+import Textfield from '../../shared/Textfield/Textfield'
+import SearchIcon from '@mui/icons-material/Search'
 
 type SearchProps = {
   placeholder: string;
   handleSearch: (value: string) => void;
 };
 
-export default function Search({ handleSearch, placeholder }: SearchProps) {
+export default function Search ({ handleSearch, placeholder }: SearchProps) {
   return (
     <form
       className="flex items-end w-auto flex-row justify-end text-right content-end"
@@ -21,5 +21,5 @@ export default function Search({ handleSearch, placeholder }: SearchProps) {
         />
       </div>
     </form>
-  );
+  )
 }

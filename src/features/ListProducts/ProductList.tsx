@@ -1,8 +1,8 @@
-import { Product } from "../Products/ProductsApiSlice";
+import { Product } from '../Products/ProductsApiSlice'
 
-export default function ProductList({
+export default function ProductList ({
   elements,
-  onProductSelect,
+  onProductSelect
 }: {
   elements: Product[];
   onProductSelect: (product: Product) => void;
@@ -19,24 +19,24 @@ export default function ProductList({
             className="object-cover h-4/6 w-6/12 md:w-10/12 rounded-md"
           />
           <div className="text-center">
-            <span className="text-md">{product.name} </span>{" "}
+            <span className="text-md">{product.name} </span>{' '}
             <span className="text-floralWhite-700">
               <hr className="border-floralWhite-300" />
-            </span>{" "}
+            </span>{' '}
             <span className="text-xs"> {product.binomialName}</span>
           </div>
           <div>
-            <span>{product.price}</span>{" "}
+            <span>{product.price}</span>{' '}
             <span className="text-xs text-floralWhite-700">eur</span>
           </div>
         </div>
       </div>
     </div>
-  ));
+  ))
 
   return (
     <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-4 ">
       {elementsContent}
     </div>
-  );
+  )
 }

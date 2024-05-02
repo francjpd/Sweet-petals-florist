@@ -12,7 +12,7 @@ export const ProductImageSkeleton = () => (
       </svg>
     </div>
   </div>
-);
+)
 
 export const ProductDescriptionSkeleton = () => (
   <div role="status" className="w-full animate-pulse">
@@ -22,4 +22,4 @@ export const ProductDescriptionSkeleton = () => (
     <div className="h-4 bg-gray-200 rounded-sm dark:bg-gray-700 w-56 mb-4"></div>
     <span className="sr-only">Loading...</span>
   </div>
-);
+)

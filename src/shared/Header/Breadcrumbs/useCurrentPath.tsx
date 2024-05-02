@@ -1,8 +1,8 @@
-import { useState, useContext, createContext, FC, ReactNode } from "react";
+import { useState, useContext, createContext, FC, ReactNode, Dispatch, SetStateAction } from 'react'
 
 type CurrentPathContextType = {
   path: string;
-  setPath: React.Dispatch<React.SetStateAction<string>>;
+  setPath: Dispatch<SetStateAction<string>>;
 };
 
 type CurrentPathProviderProps = {
@@ -11,23 +11,23 @@ type CurrentPathProviderProps = {
 
 const CurrentPathContext = createContext<CurrentPathContextType | undefined>(
   undefined
-);
+)
 
 export const CurrentPathProvider: FC<CurrentPathProviderProps> = ({
-  children,
+  children
 }: CurrentPathProviderProps) => {
-  const [path, setPath] = useState<string>("");
+  const [path, setPath] = useState<string>('')
   return (
     <CurrentPathContext.Provider value={{ path, setPath }}>
       {children}
     </CurrentPathContext.Provider>
-  );
-};
+  )
+}
 
 export const useCurrentPath = (): CurrentPathContextType => {
-  const context = useContext(CurrentPathContext);
+  const context = useContext(CurrentPathContext)
   if (!context) {
-    throw new Error("useCurrentPath must be used within a CurrentPathProvider");
+    throw new Error('useCurrentPath must be used within a CurrentPathProvider')
   }
-  return context;
-};
+  return context
+}

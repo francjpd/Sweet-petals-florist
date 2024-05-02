@@ -1,10 +1,10 @@
-import flower from "../../assets/flower.svg";
+import flower from '../../assets/flower.svg'
 
 type LogoProps = {
   className?: string;
 };
 
-export default function Logo({ className }: LogoProps) {
+export default function Logo ({ className }: LogoProps) {
   return (
     <div
       className={`flex flex-col justify-center w-28 ${className && className}`}
@@ -20,5 +20,5 @@ export default function Logo({ className }: LogoProps) {
         <span className="font-thin"> Dulces petalos</span>
       </span>
     </div>
-  );
+  )
 }

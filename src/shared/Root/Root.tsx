@@ -1,22 +1,22 @@
-import { useOutlet } from "react-router-dom";
-import Header from "../Header/Header";
-import Breadcrumb from "../Header/Breadcrumbs/Breadcrumbs";
-import { AnimatePresence, motion } from "framer-motion";
+import { useOutlet } from 'react-router-dom'
+import Header from '../Header/Header'
+import Breadcrumb from '../Header/Breadcrumbs/Breadcrumbs'
+import { AnimatePresence, motion } from 'framer-motion'
 
-export default function Root() {
-  const outlet = useOutlet();
+export default function Root () {
+  const outlet = useOutlet()
 
   const pageVariants = {
     initial: {
-      opacity: 0,
+      opacity: 0
     },
     in: {
-      opacity: 1,
+      opacity: 1
     },
     out: {
-      opacity: 0,
-    },
-  };
+      opacity: 0
+    }
+  }
 
   return (
     <div className="container w-auto w-12/12 md:w-10/12 mx-auto flex flex-col">
@@ -25,7 +25,7 @@ export default function Root() {
           <Breadcrumb />
         </Header>
       </section>
-      <AnimatePresence mode={"wait"}>
+      <AnimatePresence mode={'wait'}>
         <motion.div
           key={location.pathname}
           initial="initial"
@@ -38,5 +38,5 @@ export default function Root() {
         </motion.div>
       </AnimatePresence>
     </div>
-  );
+  )
 }
