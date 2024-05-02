@@ -18,10 +18,10 @@ export default function Button ({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex px-3 py-2 rounded-sm ${
+      className={`inline-flex px-3 py-2 rounded-md ${
         variant === 'primary'
           ? 'bg-floralWhite-200  border-casper-600 text-casper-800  hover:bg-floralWhite-300 hover:border-floralWhite-600 placeholder-floralWhite-600 dark:bg-charlestonGreen-700 dark:border-charlestonGreen-900 dark:text-gray-100 dark:hover:bg-charlestonGreen-300 dark:hover:border-charlestonGreen-300'
-          : 'bg-casper-200  border-casper-600 text-floralWhite-600  hover:bg-casper-300 hover:border-casper-600 placeholder-floralWhite-600  dark:bg-casper-950  dark:border-charlestonGreen-900 dark:hover:bg-charlestonGreen-300 dark:hover:border-charlestonGreen-300'
+          : 'bg-casper-100 border border-casper-200 text-floralWhite-600  hover:bg-casper-300 hover:border-casper-600 placeholder-floralWhite-600  dark:bg-casper-950  dark:border-charlestonGreen-900 dark:hover:bg-charlestonGreen-300 dark:hover:border-charlestonGreen-300'
       }`}
     >
       {prependIcon && (

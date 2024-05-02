@@ -48,7 +48,7 @@ export function ProductDetailsPage () {
               : (
               <img
                 src={data?.imgUrl}
-                className="object-cover h-6/6 w-12/12"
+                className="object-cover max-h-96 w-12/12"
               ></img>
                 )}
           </div>
@@ -59,33 +59,29 @@ export function ProductDetailsPage () {
             : (
             <div className="h-5/5 text-casper-950 dark:text-white dark:bg-charlestonGreen-800 bg-casper-100 p-4 rounded-b-md">
               <ol>
-                <li>
-                  <span className="text-xs">Name: </span>
-                  <span className="font-semibold text-floralWhite-600">
+                <li className='flex flex-col items-end'>
+                  <span className="font-semibold text-amber-500 text-3xl leading-none">
                     {data?.name}
                   </span>
-                </li>
-                <li>
-                  <span className="text-xs">Binomial name: </span>
-                  <span className="font-semibold text-floralWhite-600">
+                  <span className="text-floralWhite-600  font-mono leading-none">
                     {data?.binomialName}
                   </span>
                 </li>
                 <li>
-                  <span className="text-xs">Price: </span>
+                  <span className="text-md ">Price: </span>
                   <span className="font-semibold text-floralWhite-600">
                     {data?.price}
                   </span>
                 </li>
                 <li>
                   <span className="text-xs">Waterings per week: </span>
-                  <span className="font-semibold text-floralWhite-600">
+                  <span className=" text-floralWhite-600">
                     {data?.wateringsPerWeek}
                   </span>
                 </li>
                 <li>
                   <span className="text-xs">Fertilizer type: </span>
-                  <span className="font-semibold text-floralWhite-600">
+                  <span className=" text-floralWhite-600">
                     {data?.fertilizerType}
                   </span>
                 </li>

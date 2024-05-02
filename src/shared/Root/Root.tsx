@@ -19,24 +19,24 @@ export default function Root () {
   }
 
   return (
-    <div className="container w-auto w-12/12 md:w-10/12 mx-auto flex flex-col">
-      <section className="mb-8">
-        <Header>
-          <Breadcrumb />
-        </Header>
-      </section>
-      <AnimatePresence mode={'wait'}>
-        <motion.div
-          key={location.pathname}
-          initial="initial"
-          animate="in"
-          exit="out"
-          transition={{ duration: 0.125 }} // Set the duration to 0.5 seconds
-          variants={pageVariants}
-        >
-          {outlet}
-        </motion.div>
-      </AnimatePresence>
-    </div>
+    <>
+      <Header>
+        <Breadcrumb />
+      </Header>
+      <div className="container w-auto w-12/12 md:w-10/12 mx-auto flex flex-col mt-12">
+        <AnimatePresence mode={'wait'}>
+          <motion.div
+            key={location.pathname}
+            initial="initial"
+            animate="in"
+            exit="out"
+            transition={{ duration: 0.125 }} // Set the duration to 0.5 seconds
+            variants={pageVariants}
+          >
+            {outlet}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </>
   )
 }

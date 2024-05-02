@@ -1,4 +1,4 @@
-# Floristeria-dulces-petalos
+# Sweet petals florist
 
 ## Uses the following libraries:
   - Vite + Typescript + react
@@ -32,5 +32,5 @@ The product list view contains:
 - The Search and Textfield as a prop variant to change its colors
 
 #  Scripts
-- `start`: starts the dev server
+- `dev`: starts the dev server
 - `build`: builds the project  

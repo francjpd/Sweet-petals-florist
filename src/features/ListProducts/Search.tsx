@@ -12,7 +12,7 @@ export default function Search ({ handleSearch, placeholder }: SearchProps) {
       className="flex items-end w-auto flex-row justify-end text-right content-end"
       onSubmit={(e) => e.preventDefault()}
     >
-      <div className="relative w-full  md:max-w-96">
+      <div className="relative w-full md:max-w-96">
         <Textfield
           prependIcon={<SearchIcon />}
           placeholder={placeholder}

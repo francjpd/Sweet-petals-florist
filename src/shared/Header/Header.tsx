@@ -5,8 +5,8 @@ import { ReactNode } from 'react'
 export default function Header ({ children }: { children?: ReactNode }) {
   return (
     <>
-      <header className="left-0 top-0 z-40   relative  w-auto md:h-20 flex flex-col justify-center">
-        <div className="px-2 md:px-8 py-2 md:py-4 m-0 w-full relative inline-flex align-middle bg-floralWhite-200 text-floralWhite-950 dark:bg-charlestonGreen-700 ">
+      <header className="left-0 top-0 z-40 relative  w-full md:h-20 flex flex-col justify-center">
+        <div className="px-2 md:px-8 py-2 md:py-4 m-0 w-full relative inline-flex align-middle bg-floralWhite-50 text-floralWhite-950 dark:bg-charlestonGreen-700 ">
           <div className="w-28 items-start align-middle md:pt-2">
             <Link to={'/'}>
               <Logo></Logo>
