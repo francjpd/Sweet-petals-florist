@@ -23,7 +23,7 @@ export default function Root () {
       <Header>
         <Breadcrumb />
       </Header>
-      <div className="container w-auto w-12/12 md:w-10/12 mx-auto flex flex-col mt-12">
+      <div className="container w-auto w-12/12 md:w-10/12 mx-auto flex flex-col mt-4 md:mt-12">
         <AnimatePresence mode={'wait'}>
           <motion.div
             key={location.pathname}

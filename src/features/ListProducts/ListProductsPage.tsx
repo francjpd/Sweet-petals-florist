@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Product, useFetchProductsQuery } from '../Products/ProductsApiSlice'
 import Search from './Search'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProductList from './ProductList'
 import debounce from 'debounce'
 import { createPortal } from 'react-dom'
@@ -15,10 +15,15 @@ export function ListProductsPage () {
     navigate(`/${id}`)
   }
 
-  // I would normally use a  debounce function to handle real time filtering.
+  useEffect(() => {
+    if (data) {
+      setFilteredProducts(data)
+    }
+  }, [data])
+
   const handleSearch = debounce((value: string) => {
-    if (value.length <= 1) {
-      setFilteredProducts([])
+    if (value.length <= 1 && data) {
+      setFilteredProducts(data)
       return
     }
     if (data) {
@@ -50,14 +55,14 @@ export function ListProductsPage () {
       <div className="flex flex-col">
         {isLoading
           ? (
-          <Loading />
+            <Loading />
             )
           : (
               data && (
-            <ProductList
-              elements={filteredProducts.length ? filteredProducts : data}
-              onProductSelect={onProductSelect}
-            ></ProductList>
+              <ProductList
+                elements={filteredProducts}
+                onProductSelect={onProductSelect}
+              ></ProductList>
               )
             )}
       </div>

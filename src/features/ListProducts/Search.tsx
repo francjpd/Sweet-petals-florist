@@ -1,5 +1,5 @@
 import Textfield from '../../shared/Textfield/Textfield'
-import SearchIcon from '@mui/icons-material/Search'
+import SearchIcon from '../../assets/search.svg'
 
 type SearchProps = {
   placeholder: string;
@@ -14,7 +14,7 @@ export default function Search ({ handleSearch, placeholder }: SearchProps) {
     >
       <div className="relative w-full md:max-w-96">
         <Textfield
-          prependIcon={<SearchIcon />}
+          prependIcon={<img src={SearchIcon} />}
           placeholder={placeholder}
           variant="secondary"
           onChange={(e) => handleSearch(e.target.value)}
