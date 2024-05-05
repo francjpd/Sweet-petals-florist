@@ -38,7 +38,7 @@ export default function Header ({ children }: { children?: ReactNode }) {
               ? (
                 <>
                   {navbarContent}
-                  <div className="dark:bg-casper-950 bg-casper-200 bg-opacity-50 col-span-12 w-full grid grid-cols-12"> <div className='col-start-2'>
+                  <div className="dark:bg-casper-950 bg-casper-200 bg-opacity-50 col-span-12 w-full grid grid-cols-12 backdrop-blur-md"> <div className='col-start-2'>
                     {children}
                   </div></div>
                 </>
@@ -48,7 +48,7 @@ export default function Header ({ children }: { children?: ReactNode }) {
                   <Button size='icon' variant='secondary' className='col-start-11 col-span-2' onClick={() => setIsNavbarFromMobileOpen(!isNavbarFromMobileOpen)}>
                     <img src={burgerIcon} />
                   </Button>
-                  <div className={`text-center px-8 pt-4 w-full absolute bg-casper-50 dark:bg-gray-950 shadow-sm top-full h-5/5 ${isNavbarFromMobileOpen ? 'visible' : 'invisible'}`}>
+                  <div className={`-translate-x-48 transition-all text-center px-8 py-4 w-[calc(100%-7rem)] absolute bg-slate-50 dark:bg-gray-950 shadow-md top-0 h-5/5 ${isNavbarFromMobileOpen ? 'visible translate-x-0 opacity-100' : 'invisible opacity-0'}`}>
                     {navbarContent}
                   </div>
                 </>

@@ -4,8 +4,7 @@ import moon from '../../assets/moon.svg'
 import Button from '../Button/Button'
 
 export default function ToggleDarkMode ({ className }: { className?: string }) {
-  const [isDark, toggleDark] = useState(false)
-
+  const [isDark, toggleDark] = useState(localStorage.getItem('isDark') === 'false')
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark')
@@ -14,6 +13,11 @@ export default function ToggleDarkMode ({ className }: { className?: string }) {
     }
   }, [isDark])
 
+  const handleToggleButton = () => {
+    toggleDark(!isDark)
+    localStorage.setItem('isDark', isDark.toString())
+  }
+
   const isDarkImage = <img src={isDark ? moon : sun} />
-  return (<Button className={`pr-2 pt-2 md:pt-4 ${className}`} size='icon' variant='ghost' onClick={() => toggleDark(!isDark)}>{isDarkImage}</Button>)
+  return (<Button className={`pr-2 pt-2 md:pt-4 ${className}`} size='icon' variant='ghost' onClick={handleToggleButton}>{isDarkImage}</Button>)
 }
